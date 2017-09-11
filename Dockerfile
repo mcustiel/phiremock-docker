@@ -1,7 +1,7 @@
-FROM composer/composer
+FROM composer
 
 ENV PHARS_DIR /opt/phars
-RUN mkdir $PHARS_DIR
+RUN mkdir -p $PHARS_DIR
 ENV PATH $PHARS_DIR:$PATH
 
 RUN composer global require mcustiel/phiremock
