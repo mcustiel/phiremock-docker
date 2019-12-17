@@ -28,7 +28,7 @@ docker run -ti --rm phiremock
 # /docker/config/phiremock/Dockerfile
 # /docker/config/codeception/Dockerfile
 # /docker/config/php/Dockerfile
-# /tests/_data
+# /tests/_data/expectations
 # /tests/_output
 # /tests/_support
 # /tests/acceptance
