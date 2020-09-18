@@ -27,3 +27,4 @@ RUN mkdir -p -m 0777 /opt/phiremock/expectation-files
 EXPOSE 80
 
 CMD ["/opt/composer/vendor/bin/phiremock", "-d", "-p", "80", "-i", "0.0.0.0", "-e", "/opt/phiremock/expectation-files"]
+ENTRYPOINT ["/opt/composer/vendor/bin/phiremock"]
