@@ -1,4 +1,4 @@
-FROM php:7.3-cli
+FROM php:8.2-cli
 
 RUN apt-get update && apt-get -y install git gzip wget libgcrypt20-dev zlib1g-dev libzip-dev zip bzip2 libbz2-dev libmcrypt-dev
 RUN docker-php-ext-install zip bz2
@@ -20,11 +20,10 @@ RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 RUN mkdir -p -m 0777 /opt/composer
 ENV COMPOSER_HOME=/opt/composer
 
-RUN composer global require mcustiel/phiremock --prefer-dist --no-interaction --optimize-autoloader --apcu-autoloader
+RUN composer global require mcustiel/phiremock-server --prefer-dist --no-interaction --optimize-autoloader --apcu-autoloader
 
 RUN mkdir -p -m 0777 /opt/phiremock/expectation-files
 
 EXPOSE 80
 
 CMD ["/opt/composer/vendor/bin/phiremock", "-d", "-p", "80", "-i", "0.0.0.0", "-e", "/opt/phiremock/expectation-files"]
-ENTRYPOINT ["/opt/composer/vendor/bin/phiremock"]
